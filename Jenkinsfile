@@ -16,7 +16,6 @@ pipeline {
                 script {
                     app = docker.build("k8sshuceshi/springboot-hello-world-docker")
                     app.inside('--add-host host.docker.internal:host-gateway') {
-                        sh 'echo host.docker.internal'
                         sh 'echo $(curl host.docker.internal:8080)'
                     }
                 }
