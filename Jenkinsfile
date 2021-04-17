@@ -15,7 +15,7 @@ pipeline {
             steps {
                 script {
                     app = docker.build("k8sshuceshi/springboot-hello-world-docker")
-                    app.withRun('-p 8089:8080') {
+                    app.inside {
                         sh 'echo $(curl localhost:8089)'
                     }
                 }
