@@ -16,7 +16,7 @@ pipeline {
                 script {
                     app = docker.build("k8sshuceshi/springboot-hello-world-docker")
                     app.withRun('-p 8089:8080') {
-                        sh 'http localhost:8089'
+                        sh 'sleep 3 && http localhost:8089'
                     }
                 }
             }
