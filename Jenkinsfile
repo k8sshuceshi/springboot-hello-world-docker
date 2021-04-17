@@ -16,6 +16,7 @@ pipeline {
                 script {
                     app = docker.build("k8sshuceshi/springboot-hello-world-docker")
                     app.inside {
+                        sh 'hostname'
                         sh 'echo $(curl localhost:8080)'
                     }
                 }
